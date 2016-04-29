@@ -3,14 +3,14 @@ public class Main
 {
 	public static void main(String args[]) {
 		Snake s1 = new Snake();
-		System.out.println(" ----------------------------------------------------------");
+		System.out.println("----------------------------------------------------------");
 		System.out.println();
 		System.out.println("                           贪吃蛇");
 		System.out.println();
 		System.out.println("                           Snake");
 		System.out.println();
-		System.out.println(" ----------------------------------------------------------");
-
+		System.out.println("----------------------------------------------------------");
+		System.out.println();
 		System.out.println("-----------------须知|notice-----------------");
 		System.out.println("	回车代表提交，如未输入就提交，则按原方向前进，若");
 		System.out.println("键入定义按钮外的其他字符，则视为未输入。");
@@ -34,7 +34,7 @@ public class Main
 			}
 		}
 		System.out.println();
-		System.out.print("这次是高度......|the height...");
+		System.out.println("这次是高度......|the height...");
 		while (true) {
 			try {
 				s1.setHeight();
@@ -62,11 +62,10 @@ public class Main
 		}
 		s1.startArrayList();
 		s1.food();
-		//s1.useScan();
 		while (s1.getOn() != -1) {
+			s1.input();
 			s1.screan();
 			System.out.println("输入你要转向的方向：");
-			s1.input();
 		}
 	}
 }

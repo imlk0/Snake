@@ -4,8 +4,8 @@ import java.util.*;
 public class Snake {
 	private Scanner scan = new Scanner(System.in);//实例化Scanner
 	private int on = 0;//描述剩余步伐和游戏状态------有getter
-	private int r;//开始时定义，储存方向
-	private int fi_1;//开始时定义，用于储存末尾数字;
+	private int r;//储存方向
+	private int fi_1;//用于储存末尾数字;
 	private int firstNum;//头的位置
 	private int food = 0;//储存食物地点
 	private int bigFood = 0;//储存大食物
@@ -102,7 +102,7 @@ public class Snake {
 		}
 
 		System.out.println();
-
+		
 		firstNum = sn.get(0);
 		fi_1 = sn.get(sn.size() - 1);//储存最后一项
 		boolean b = true;
@@ -122,8 +122,8 @@ public class Snake {
 			b = back();
 		}
 		Exchange();
-
 		//一步移动完成
+		
 		if (sn.get(0) == food) {//判断是否吃到food
 			if (bigFood == 0) {
 				eaten ++;
@@ -139,9 +139,11 @@ public class Snake {
 			sn.add(fi_1);
 			on = 0;
 		}
+		
 		if (on != 0) {
 			on--;
-		} else {
+		} 
+		if(on == 0){
 			bigFood = 0;
 		}
 
@@ -159,7 +161,7 @@ public class Snake {
 			on = -1;//游戏状态改为结束(0)
 		}
 		if (sn.size() == weight * height) {//判断是否吃完
-			System.out.println("没想到你居然吃完了.....快到群里告诉我一声............反正我也不会给你奖励.........");
+			System.out.println("没想到你居然吃完了.....快告诉我一声............反正我也不会给你奖励.........");
 			on = -1;
 		}
 	}
@@ -241,9 +243,9 @@ public class Snake {
 					} else {
 						if (sn.contains(i)) {
 							if (i == sn.get(0)) {
-								System.out.print("∅");
+								System.out.print("@");//∅
 							} else {
-								System.out.print("⊙");
+								System.out.print("#");//⊙
 							}
 						} else {
 							System.out.print(" ");
@@ -255,7 +257,7 @@ public class Snake {
 				}
 			}
 		}
-		System.out.print("得分：" + score + "    当前方向： ");
+		System.out.print("得分：" + score + "    方向： ");
 		switch (r) {
 			case(4):System.out.print("←");//左
 				break;
@@ -268,7 +270,7 @@ public class Snake {
 			default:System.out.print("→");//右
 		}
 		if (on != 0) {
-			System.out.println("     剩余步伐：" + on);
+			System.out.println("     似魔鬼的步伐：" + on);
 		} else {
 			System.out.println();
 		}
